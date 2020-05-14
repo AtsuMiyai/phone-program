@@ -1,6 +1,6 @@
 /*
-これが完成版！！
-./serv 49991
+
+./serv [ポート番号]
 
 */
 #include <netinet/in.h>
