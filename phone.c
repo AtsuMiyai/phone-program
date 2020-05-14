@@ -1,6 +1,4 @@
-//./i1i2i3_phone 500000  :サーバー側　　./i1i2i3_phone 192.168.100.123 500000 :クライアント側
-//これもそうだけど、何文字読み込んで、それを出力させるのかが大事なのでnで操作しないといけない
-//エラー処理、EOF処理も加えておく。
+//./phone [ポート番号]  :サーバー側　　./phone [IPアドレス] [ポート番号] :クライアント側
 #include <netinet/in.h>
 #include <netinet/ip.h>
 #include <netinet/tcp.h>
@@ -67,6 +65,10 @@ int main(int argc, char **argv)
                 perror("send");
                 exit(1);
             }
+            if (n==0){
+                break;
+            }
+
             write(s, store, 2 * N);
             int o = read(s, data1, 2 * N); //クライアント側からの書き込みを標準入力に書き出す。
             if (o == -1)
@@ -127,14 +129,12 @@ int main(int argc, char **argv)
         int n;
         int i = 0;
 
-        // char data1[1];  //sを読み込む
-        // char store1[1]; //rec用
         short data1[N];
         short store1[N];
         while (1)
         {
 
-            // int n_ = read(0, store1, 1); //標準入力を読み込む
+           
             int n = read(s, data1, 2 * N);
             if (n == -1)
             {
@@ -149,9 +149,13 @@ int main(int argc, char **argv)
                 perror("fread");
                 exit(1);
             }
+            if (n==0){
+                break;
+            }
+
             write(s, store1, 2 * N);
             memset(data1, 0, sizeof(data1));
-            memset(store1, 0, sizeof(store1)); //おそらくこれを入れておいた方が正確。
+            memset(store1, 0, sizeof(store1)); 
         }
         pclose(rec);
         pclose(play);
