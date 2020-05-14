@@ -58,7 +58,7 @@ int main(int argc, char **argv)
                 exit(1);
             }
             //int m = sendto(s, store1, 2 * n, 0, (struct sockaddr *)&addr, sizeof(addr));
-            int m = sendto(s, store1, n, 0, (struct sockaddr *)&addr, sizeof(addr)); //これなのだが、わからないです、、
+            int m = sendto(s, store1, n, 0, (struct sockaddr *)&addr, sizeof(addr)); //
             if (m == -1)
             {
                 perror("sendto");
