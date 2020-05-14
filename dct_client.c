@@ -1,6 +1,6 @@
 /*
  最新完成版
- ./client 192.168.100.123 49991 | play  -t raw -b 16 -c 1 -e s -r 44100 -
+ ./client [IPアドレス] [ポート番号]| play  -t raw -b 16 -c 1 -e s -r 44100 -
 
 */
 #include <netinet/in.h>
@@ -77,8 +77,6 @@ int main(int argc, char **argv)
         exit(1);
     }
     int s = socket(PF_INET, SOCK_STREAM, 0);
-    //FILE *fp;
-    //gets()とか？何かしらの形で読み取っては、渡すようにすれば良い、これは簡単にできるはず。
     if (s == -1)
     {
         perror("open");
