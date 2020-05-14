@@ -1,6 +1,6 @@
 /*
 clientから送られたデータを標準出力に書き出す。
-./serv_udp  50000 | play  -t raw -b 16 -c 1 -e s -r 44100 -
+./serv_udp [ポート番号] | play  -t raw -b 16 -c 1 -e s -r 44100 -
 
 */
 #include <netinet/in.h>
