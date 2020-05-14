@@ -1,7 +1,7 @@
 /*
 データを標準入力から受け取ってサーバー側に送る。
-rec  -t raw -b 16 -c 1 -e s -r 44100 - | ./client_udp 192.168.100.123 50000
- ./client_udp 192.168.100.123 50000
+rec  -t raw -b 16 -c 1 -e s -r 44100 - | ./client_udp [IPアドレス] [ポート番号]
+ ./client_udp [IPアドレス] [ポート番号]
 */
 #include <netinet/in.h>
 #include <netinet/ip.h>
