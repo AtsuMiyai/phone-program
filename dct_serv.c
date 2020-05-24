@@ -42,7 +42,7 @@ short DCT(double F[], short f[], int n)
     int count = 0;
     for (int i = 0; i < n; i++)
     {
-        if (fabs(F[i]) <= max1 / 200.0)
+        if (fabs(F[i]) <= max1 / 10.0)
         {
             F[i] = 0;
         } //最後に0じゃない数字が出た場所を記録しておく
