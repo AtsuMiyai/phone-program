@@ -1,7 +1,8 @@
 /*
- 最新完成版
- ./client [IPアドレス] [ポート番号]| play  -t raw -b 16 -c 1 -e s -r 44100 -
+サーバー側から送られてきたデータに対し、コサイン逆変換を適用し、時間領域の音声データに変換し、そのデータを標準出力に出す。
 
+ ./dct_client_recv [IPアドレス] [ポート番号] | play -t raw -b 16 -c 1 -e s -r 44100 - 
+  
 */
 #include <netinet/in.h>
 #include <netinet/ip.h>
@@ -105,7 +106,7 @@ int main(int argc, char **argv)
         int n = read(s, data, 2 * N);
         if (n == -1)
         {
-            perror("recv");
+            perror("read");
             exit(1);
         }
         if (n == 0) //EOF処理
