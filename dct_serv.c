@@ -38,7 +38,7 @@ short DCT(double F[], short f[], int n)
             max1 = max(max1, fabs(F[i]));
         }
     }
-    //最大の周波数成分の大きさmax1の1/200以下の大きさを持つ音はなくす。
+    //最大の周波数成分の大きさmax1の1/10以下の大きさを持つ音はなくす。
     int count = 0;
     for (int i = 0; i < n; i++)
     {
